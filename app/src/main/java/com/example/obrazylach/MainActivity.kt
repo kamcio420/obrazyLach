@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         val seek3H = findViewById<SeekBar>(R.id.image3HBar)
         val seek3V = findViewById<SeekBar>(R.id.image3VBar)
         val progressBarV = findViewById<ProgressBar>(R.id.progressBarV)
-        val progressBarH = findViewById<ProgressBar>(R.id.progressBarV)
+        val progressBarH = findViewById<ProgressBar>(R.id.progressBarH)
 
 
         var resetButton = findViewById<Button>(R.id.resetButton)
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek1H.progress != 0)
                     image1.layoutParams.width = seek1H.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek1H.progress.toString()
+                progressBarH.progress = (seek1H.progress / 3) + (seek2H.progress / 3) + (seek3H.progress / 3)
 
             }
 
@@ -72,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek1V.progress != 0)
                     image1.layoutParams.height = seek1V.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek1H.progress.toString()
+                progressBarV.progress = (seek1V.progress / 3) + (seek2V.progress / 3) + (seek3V.progress / 3)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek2H.progress != 0)
                     image2.layoutParams.width = seek2H.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek2H.progress.toString()
+                progressBarH.progress = (seek1H.progress / 3) + (seek2H.progress / 3) + (seek3H.progress / 3)
 
             }
 
@@ -109,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek2V.progress != 0)
                     image2.layoutParams.height = seek2V.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek2V.progress.toString()
+                progressBarV.progress = (seek1V.progress / 3) + (seek2V.progress / 3) + (seek3V.progress / 3)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
@@ -126,6 +130,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek3H.progress != 0)
                     image3.layoutParams.width = seek3H.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek3H.progress.toString()
+                progressBarH.progress = (seek1H.progress / 3) + (seek2H.progress / 3) + (seek3H.progress / 3)
 
             }
 
@@ -146,6 +151,7 @@ class MainActivity : AppCompatActivity() {
                 if(seek3V.progress != 0)
                     image3.layoutParams.height = seek3V.progress * 3
                 findViewById<TextView>(R.id.textView2).text = seek3H.progress.toString()
+                progressBarV.progress = (seek1V.progress / 3) + (seek2V.progress / 3) + (seek3V.progress / 3)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
