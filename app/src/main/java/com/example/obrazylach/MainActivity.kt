@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
 
@@ -22,8 +23,28 @@ class MainActivity : AppCompatActivity() {
         val seek2V = findViewById<SeekBar>(R.id.image2VBar)
         val seek3H = findViewById<SeekBar>(R.id.image3HBar)
         val seek3V = findViewById<SeekBar>(R.id.image3VBar)
+        val progressBarV = findViewById<ProgressBar>(R.id.progressBarV)
+        val progressBarH = findViewById<ProgressBar>(R.id.progressBarV)
+
 
         var resetButton = findViewById<Button>(R.id.resetButton)
+
+        resetButton.setOnClickListener {
+            seek1H.progress = 0
+            seek1V.progress = 0
+            seek2H.progress = 0
+            seek2V.progress = 0
+            seek3H.progress = 0
+            seek3V.progress = 0
+            image1.layoutParams.width = 2
+            image1.layoutParams.height = 2
+            image2.layoutParams.width = 2
+            image2.layoutParams.height = 2
+            image3.layoutParams.width = 2
+            image3.layoutParams.height = 2
+            progressBarV.progress = 0
+            progressBarH.progress = 0
+        }
 
         seek1H?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int,
